@@ -1,0 +1,112 @@
+version: "2.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hola
+    - Buenas
+    - holi
+    - que hay
+    - Hay alguien ahi?
+
+- intent: opciones
+  examples: |
+    - ¿Que puedo hacer?
+    - ¿Que opciones tengo?
+    - Que opciones hay
+    - Que cosas se pueden hacer?
+    - Que hago ahora
+    - Que quieres que haga
+    - Que necesito hacer
+    - ¿Que hay que hacer?
+
+
+- intent: deny
+  examples: |
+    - no
+
+- intent: affirm
+  examples: |
+    - si
+
+- intent: despedir
+  examples: |
+    - ¡Adiós!
+    - ¡Hasta luego!
+
+
+- intent: bot_opciones
+  examples: |
+    - dime las opciones
+    - que opciones tengo
+    - que opciones hay
+    - reiniciar
+    - inicio
+    - empezar de nuevo
+    - volver a empezar
+
+- intent: corto
+  examples: |
+    - menos de un segundo
+    - menos de 1 segundo
+    - menor que 1 segundo
+    - menos de uno
+    - menos de 1
+    - corto
+
+- intent: mediano
+  examples: |
+    - Entre uno y cinco
+    - entre 1 y 5 
+    - entre 1 y 5 segundos
+    - entre uno y 5 segundos
+    - entre los dos
+    - mediano
+
+- intent: largo
+  examples: |
+    - mas de 9
+    - mas de 9 segundos
+    - mayor de 9 
+    - mayor de 9 segundos
+    - mas de nueve
+    - mas de nueve segundos
+    - mayor de nueve segundos
+    - mayor de nueve
+    - largo
+
+- intent: clasificar_sonido
+  examples: |
+    - clasificar sonido
+    - deseo clasificar sonido
+    - quiero clasificar sonido
+    - vamos a clasificar sonido
+    - jugar a sonido
+    - quiero jugar con sonido
+
+- intent: pregunta_uno
+
+- intent: pregunta_dos
+
+- intent: pregunta_tres
+
+- intent: termina_clasif
+
+- intent: post_api
+
+
+- intent: otro_sonido
+  examples: |
+    - dame otro sonido para clasificar
+    - seguir clasificando
+    - quisiera seguir clasificando
+    - quiero otro
+    - dame otro
+
+- intent: no_seguir
+  examples: |
+    - no quiero seguir
+    - quiero parar
+    - basta por favor
+    - ya no quiero mas
+    - no me apetece seguir

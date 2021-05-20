@@ -1,0 +1,53 @@
+version: "2.0"
+
+##########################################################
+################# FLUJOS DE DIALOGO ######################
+##########################################################
+stories:
+
+- story: hasta dar las opciones disponibles
+  steps:
+  - intent: greet
+  - action: utter_opciones
+
+
+- story: en caso de que el usuario quiera clasificar
+  steps:
+  - intent: clasificar_sonido
+  - action: utter_clasificar_instrucciones
+
+- story: pregunta uno
+  steps:
+  - intent: pregunta_uno
+  - action: action_dar_sonido
+  - action: utter_pregunta_uno
+  - action: action_set_duracion
+
+
+- story: segunda pregunta
+  steps:
+  - intent: pregunta_dos
+  - action: utter_pregunta_dos
+  - action: action_set_r2
+
+- story: tercera pregunta
+  steps:
+  - intent: pregunta_tres
+  - action: utter_pregunta_tres
+  - action: action_set_r3
+
+- story: postear api
+  steps:
+  - intent: post_api
+  - action: action_post_api
+  - action: utter_termina_clasif
+
+- story: continuar
+  steps:
+  - intent: no_seguir
+  - action: action_reset
+
+- story: despedir
+  steps:
+  - intent: despedir
+  - action: utter_despedir

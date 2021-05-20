@@ -1,0 +1,25 @@
+version: '3'
+services:
+  rasa:
+    container_name: TFG-rasa-server
+    image: rasa/rasa:latest
+    ports:
+      #- 5006:5006
+      - 5005:5005
+    volumes:
+      - .:/app
+    command:
+      - run
+      - -m
+      - models
+      - --cors
+      - "*"
+    depends_on:
+      - action-server
+  action-server:
+    container_name: action
+    image: rasa/rasa-sdk:latest
+    volumes:
+      - ./actions:/app/actions
+    ports:
+      - 5055:5055

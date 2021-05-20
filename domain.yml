@@ -1,0 +1,135 @@
+version: "2.0"
+
+session_config:
+  session_expiration_time: 10
+  carry_over_slots_to_new_session: false
+
+intents:
+  - greet
+  - opciones
+  - goodbye
+  - affirm
+  - deny
+  - mi_nombre
+  - clasificar_imagen
+  - clasificar_sonido
+  - corto
+  - mediano
+  - largo
+  - bot_opciones
+  - pregunta_dos
+  - pregunta_tres
+  - post_api
+  - otro_sonido
+  - no_seguir
+  - termina_clasif
+  - pregunta_uno
+entities:
+  - nombre
+  - respuesta1
+  - respuesta2
+  - respuesta3
+  - eco
+
+responses:
+
+  utter_greet:
+  - text: "¡Bienvenido! Me alegra verte, esto es Sonidos del Cielo, el proyecto de Ciencia Ciudadana para la clasificación de meteoros a partir de sus sonidos."
+  - text: "¡Hola! Bienvenido a Sonidos del Cielo, el proyecto de Ciencia Ciudadana para la clasificación de meteoros a través de sus sonidos. "
+  - text: "Bienvenido a Sonidos del Cielo, aquí podrás escuchar meteoros y ayudar a los expertos en su clasificación."
+  - text: "¡Hola! Esto es Sonidos del Cielo, el proyecto de Ciencia Ciudadana para la clasificación de meteoros a partir de sus sonidos. "
+  - text: "¡Me alegra verte! Esto es Sonidos del Cielo, el proyecto de Ciencia Ciudadana para la clasificación de meteoros a partir de sus sonidos. "
+
+  utter_opciones:
+  - text: "Qué te gustaría hacer?, escuchar la explicación o empezar a clasificar:"
+    buttons:
+      - title: "Tutorial"
+      - title: "Clasificar sonidos"
+        payload: /clasificar_sonido
+
+  utter_clasificar_instrucciones:
+  - text: |
+      A continuación escucharás un sonido y te haré unas preguntas. Pon atención, y recuerda que puedes reproducir el sonido tantas veces como necesites pulsando el botón repetir sonido.
+    buttons:
+    - title: "Estoy preparado para clasificar"
+      payload: /pregunta_uno
+
+  utter_pregunta_uno:
+  - text: "¿Cómo es el sonido? ¿Es corto, mediano o largo?"
+    buttons:
+    - title: "Corto"
+      payload: /pregunta_dos{{"respuesta1":"Corto"}}
+    - title: "Mediano"
+      payload: /pregunta_dos{{"respuesta1":"Mediano"}}
+    - title: "Largo"
+      payload: /pregunta_dos{{"respuesta1":"Largo"}}
+    - title: "Repetir sonido"
+
+  utter_pregunta_dos:
+  - text: "Se escucha al principio un sonido corto y luego un silencio o un sonido menos intenso?"
+    buttons:
+    - title: "Si"
+      payload: /pregunta_tres{{"respuesta2":"Si"}}
+    - title: "No"
+      payload: /pregunta_tres{{"respuesta2":"No"}}
+    - title: "Repetir sonido"
+    
+  utter_pregunta_tres:
+  - text: "¿Hay un sonido inicial con un tono distinto al resto?"
+    buttons:
+    - title: Si
+      payload: /post_api{{"respuesta3":"Si"}}
+    - title: No
+      payload: /post_api{{"respuesta3":"No"}}
+    - title: "Repetir sonido"
+
+  utter_termina_clasif:
+  - text: "Ha terminado la clasificación. ¡Muchas gracias por su participación!"
+    buttons:
+    - title: "Deseo continuar clasificando"
+      payload: /opciones
+    - title: "¡Adiós!"
+      payload: /despedir
+
+  utter_continuar:
+  - text: "¿Quieres seguir clasificando?"
+    buttons:
+    - title: "Clasificar sonidos"
+      payload: /clasificar_sonido
+    - title: "No"
+      payload: /despedir
+
+  utter_despedir:
+  - text: "¡Hasta pronto!"
+    buttons:
+    - title: "Nueva clasificación"
+      payload: /greet
+
+slots:
+  nombre:
+    type: text
+  
+  respuesta1:
+    type: text
+    
+  respuesta2:
+    type: text
+
+  respuesta3:
+    type: text
+
+  respuesta4:
+    type: text
+    
+  eco:
+    type: text
+    
+
+actions:
+  - action_dar_sonido
+  - action_continuar
+  - action_post_api
+  - action_reset
+  - action_set_duracion
+  - action_set_r2
+  - action_set_r3
