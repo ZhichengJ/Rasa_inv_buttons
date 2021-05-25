@@ -87,23 +87,10 @@ responses:
   - text: "Ha terminado la clasificación. ¡Muchas gracias por su participación!"
     buttons:
     - title: "Deseo continuar clasificando"
-      payload: /opciones
+      payload: /clasificar_sonido
     - title: "¡Adiós!"
       payload: /despedir
 
-  utter_continuar:
-  - text: "¿Quieres seguir clasificando?"
-    buttons:
-    - title: "Clasificar sonidos"
-      payload: /clasificar_sonido
-    - title: "No"
-      payload: /despedir
-
-  utter_despedir:
-  - text: "¡Hasta pronto!"
-    buttons:
-    - title: "Nueva clasificación"
-      payload: /greet
 
 slots:
   nombre:
