@@ -41,3 +41,9 @@ stories:
   - intent: post_api
   - action: action_post_api
   - action: utter_termina_clasif
+
+- story: despedir
+  steps:
+  - intent: despedir
+  - action: utter_despedir
+

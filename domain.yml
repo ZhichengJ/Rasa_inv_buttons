@@ -91,6 +91,9 @@ responses:
     - title: "¡Adiós!"
       payload: /despedir
 
+  utter_despedir:
+  - text: "¡Hasta pronto!"
+
 
 slots:
   nombre:
