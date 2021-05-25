@@ -15,6 +15,7 @@ import json
 import time
 import requests
 import logging
+#import locale
 from datetime import datetime
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
@@ -31,45 +32,28 @@ from rasa_sdk.events import UserUtteranceReverted
 logger = logging.getLogger(__name__)
 headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}#, 'Access-Control-Allow-Origin':'*'}
 
+dia = ["Lunes","Martes","Miércoles","Jueves","Viernes","Sábado","Domingo"]
+mes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
 
-class action_dar_sonido(Action):
+class action_dar_sonido_info(Action):
     def name(self):
-        return 'action_dar_sonido'
+        return 'action_dar_sonido_info'
 
     def run(self, dispatcher, tracker, domain):
-        #Nos da el path absoluto de un sonido aleatorio del directorio sounds
-        #url = 'http://host.docker.internal:3000/sonidos?policy=random'  
-        #url = 'http://localhost:3000/sonidos?policy=random' #Esta linea se utiliza en caso de que no se realice un despliegue en docker
         url = 'http://138.100.100.143:3001/sonidos?policy=random'
         r = requests.get(url, headers=headers)
         decoded = json.loads(r.text)
         dispatcher.utter_message(decoded["Ruta"])
-        dispatcher.utter_message(decoded["_id"])
-        return [SlotSet("eco", decoded["_id"])]
-
-
-
-class action_dar_imagenes(Action):
-    def name(self):
-        return 'action_dar_imagenes'
-
-    def run(self, dispatcher, tracker, domain):
-        url = 'http://138.100.100.143:3001/curvasdeluz'
-        r = requests.get(url, headers=headers)
-        decoded = json.loads(r.text)
-        n = random.randrange(1,len(decoded))
-        decoded = decoded[n]
-        dispatcher.utter_message(decoded["Imagen"])
-        dispatcher.utter_message(decoded["_id"])
-        url = 'http://138.100.100.143:3001/espectrogramas'
-        r = requests.get(url, headers=headers)
-        decoded_lc = json.loads(r.text)
-        decoded = decoded_lc[n]
-        dispatcher.utter_message(decoded["Imagen"])
-        dispatcher.utter_message(decoded["_id"])
-        
-        return [SlotSet("eco",decoded["_id"])]
-
+        index = decoded['_id'].find('_')
+        estacion = decoded['_id'][:index]
+        date = decoded['_id'][index+1:-4]
+        dateTimeObj = datetime.strptime(date, '%Y-%m-%d-%H%M')
+        hour = dateTimeObj.strftime("%H:%M")
+        day = dateTimeObj.day
+        weekday = dia[dateTimeObj.weekday()]
+        month = mes[dateTimeObj.month]
+        date = weekday + ' ' + str(day) + " de " + month + " a las " + str(hour)
+        return [SlotSet("eco", decoded["_id"]), SlotSet("estacion",estacion), SlotSet("fecha",date)]
 
 
 class action_post_api(Action):

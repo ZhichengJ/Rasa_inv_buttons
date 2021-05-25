@@ -19,7 +19,7 @@ stories:
 - story: pregunta uno
   steps:
   - intent: pregunta_uno
-  - action: action_dar_sonido
+  - action: action_dar_sonido_info
   - action: utter_pregunta_uno
   - action: action_set_duracion
 
@@ -41,13 +41,3 @@ stories:
   - intent: post_api
   - action: action_post_api
   - action: utter_termina_clasif
-
-- story: continuar
-  steps:
-  - intent: no_seguir
-  - action: action_reset
-
-- story: despedir
-  steps:
-  - intent: despedir
-  - action: utter_despedir

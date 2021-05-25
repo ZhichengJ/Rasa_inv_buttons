@@ -55,7 +55,7 @@ responses:
       payload: /pregunta_uno
 
   utter_pregunta_uno:
-  - text: "¿Cómo es el sonido? ¿Es corto, mediano o largo?"
+  - text: "Este eco fue capturado en la estación de {estacion} en {fecha} ¿Cómo es el sonido? ¿Es corto, mediano o largo?"
     buttons:
     - title: "Corto"
       payload: /pregunta_dos{{"respuesta1":"Corto"}}
@@ -123,10 +123,16 @@ slots:
     
   eco:
     type: text
+
+  estacion:
+    type: text
+  
+  fecha:
+    type: text
     
 
 actions:
-  - action_dar_sonido
+  - action_dar_sonido_info
   - action_continuar
   - action_post_api
   - action_reset
