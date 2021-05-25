@@ -43,7 +43,7 @@ responses:
   utter_opciones:
   - text: "Qué te gustaría hacer?, escuchar la explicación o empezar a clasificar:"
     buttons:
-      - title: "Tutorial"
+      - title: "Tutorial / Pausar"
       - title: "Clasificar sonidos"
         payload: /clasificar_sonido
 
@@ -63,7 +63,7 @@ responses:
       payload: /pregunta_dos{{"respuesta1":"Mediano"}}
     - title: "Largo"
       payload: /pregunta_dos{{"respuesta1":"Largo"}}
-    - title: "Repetir sonido"
+    - title: "Repetir sonido / Pausar"
 
   utter_pregunta_dos:
   - text: "Se escucha al principio un sonido corto y luego un silencio o un sonido menos intenso?"
@@ -72,7 +72,7 @@ responses:
       payload: /pregunta_tres{{"respuesta2":"Si"}}
     - title: "No"
       payload: /pregunta_tres{{"respuesta2":"No"}}
-    - title: "Repetir sonido"
+    - title: "Repetir sonido / Pausar"
     
   utter_pregunta_tres:
   - text: "¿Hay un sonido inicial con un tono distinto al resto?"
@@ -81,7 +81,7 @@ responses:
       payload: /post_api{{"respuesta3":"Si"}}
     - title: No
       payload: /post_api{{"respuesta3":"No"}}
-    - title: "Repetir sonido"
+    - title: "Repetir sonido / Pausar"
 
   utter_termina_clasif:
   - text: "Ha terminado la clasificación. ¡Muchas gracias por su participación!"
