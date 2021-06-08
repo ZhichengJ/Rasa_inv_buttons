@@ -36,6 +36,34 @@ stories:
   - action: utter_pregunta_tres
   - action: action_set_r3
 
+- story: segunda pregunta despues del ejemplo
+  steps:
+  - intent: pregunta_dos_exp
+  - action: utter_dar_ultimo_eco
+  - action: utter_pregunta_dos
+  - action: action_set_r2
+
+- story: tercera pregunta despues del ejemplo
+  steps:
+  - intent: pregunta_tres_exp
+  - action: utter_dar_ultimo_eco
+  - action: utter_pregunta_tres
+  - action: action_set_r3
+
+- story: segunda pregunta despues del explicacion
+  steps:
+  - intent: pregunta_dos_exp
+  - action: utter_dar_ultimo_eco
+  - action: utter_pregunta_dos
+  - action: action_set_r2
+
+- story: tercera pregunta despues del explicacion
+  steps:
+  - intent: pregunta_tres_exp
+  - action: utter_dar_ultimo_eco
+  - action: utter_pregunta_tres
+  - action: action_set_r3
+
 - story: postear api
   steps:
   - intent: post_api
@@ -47,3 +75,60 @@ stories:
   - intent: despedir
   - action: utter_despedir
 
+- story: explicacion2
+  steps:
+  - intent: explicacion2
+  - action: utter_exp2
+
+- story: explicacion3
+  steps:
+  - intent: explicacion3
+  - action: utter_exp3
+
+- story: ejemplo 2_1
+  steps:
+  - intent: exp2_1
+  - action: utter_sonido_2_1
+  - action: utter_exp2_1
+
+- story: ejemplo 2_2
+  steps:
+  - intent: exp2_2
+  - action: utter_sonido_2_2
+  - action: utter_exp2_2
+
+- story: ejemplo 2_3
+  steps:
+  - intent: exp2_3
+  - action: utter_sonido_2_3
+  - action: utter_exp2_3
+
+- story: ejemplo 2_4
+  steps:
+  - intent: exp2_4
+  - action: utter_sonido_2_4
+  - action: utter_exp2_4
+
+- story: ejemplo 3_1
+  steps:
+  - intent: exp3_1
+  - action: utter_sonido_3_1
+  - action: utter_exp3_1
+
+- story: ejemplo 3_2
+  steps:
+  - intent: exp3_2
+  - action: utter_sonido_3_2
+  - action: utter_exp3_2
+
+- story: ejemplo 3_3
+  steps:
+  - intent: exp3_3
+  - action: utter_sonido_3_3
+  - action: utter_exp3_3
+
+- story: ejemplo 3_4
+  steps:
+  - intent: exp3_4
+  - action: utter_sonido_3_4
+  - action: utter_exp3_4

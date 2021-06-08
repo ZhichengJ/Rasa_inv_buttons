@@ -9,41 +9,24 @@ nlu:
     - que hay
     - Hay alguien ahi?
 
-- intent: opciones
-  examples: |
-    - ¿Que puedo hacer?
-    - ¿Que opciones tengo?
-    - Que opciones hay
-    - Que cosas se pueden hacer?
-    - Que hago ahora
-    - Que quieres que haga
-    - Que necesito hacer
-    - ¿Que hay que hacer?
+- intent: explicacion2
 
+- intent: explicacion3
 
-- intent: deny
-  examples: |
-    - no
+- intent: exp2_1
+- intent: exp2_2
+- intent: exp2_3
+- intent: exp2_4
 
-- intent: affirm
-  examples: |
-    - si
+- intent: exp3_1
+- intent: exp3_2
+- intent: exp3_3
+- intent: exp3_4
 
 - intent: despedir
   examples: |
     - ¡Adiós!
     - ¡Hasta luego!
-
-
-- intent: bot_opciones
-  examples: |
-    - dime las opciones
-    - que opciones tengo
-    - que opciones hay
-    - reiniciar
-    - inicio
-    - empezar de nuevo
-    - volver a empezar
 
 - intent: corto
   examples: |
@@ -88,7 +71,11 @@ nlu:
 
 - intent: pregunta_dos
 
+- intent: pregunta_dos_exp
+
 - intent: pregunta_tres
+
+- intent: pregunta_tres_exp
 
 - intent: termina_clasif
 

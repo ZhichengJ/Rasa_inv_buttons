@@ -52,8 +52,9 @@ class action_dar_sonido_info(Action):
         day = dateTimeObj.day
         weekday = dia[dateTimeObj.weekday()]
         month = mes[dateTimeObj.month]
-        date = weekday + ' ' + str(day) + " de " + month + " a las " + str(hour)
-        return [SlotSet("eco", decoded["_id"]), SlotSet("estacion", estacion.capitalize()), SlotSet("fecha",date)]
+        year = dateTimeObj.year
+        date = weekday + ' ' + str(day) + " de " + month + " del " + str(year) + " a las " + str(hour)
+        return [SlotSet("eco", decoded["Ruta"]), SlotSet("estacion", estacion.capitalize()), SlotSet("fecha",date)]
 
 
 class action_post_api(Action):
